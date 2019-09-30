@@ -72,14 +72,14 @@ function createMap(earthquakes) {
   // Define satelitemap and darkmap layers
   var satelitemap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
+    maxZoom: 75,
     id: "mapbox.satellite",
     accessToken: API_KEY
   });
 
   var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
+    maxZoom: 75,
     id: "mapbox.dark",
     accessToken: API_KEY
   });
@@ -98,7 +98,7 @@ function createMap(earthquakes) {
   // Create our map, giving it the satelitemap and earthquakes layers to display on load
   var myMap = L.map("map", {
     center: [18.2208, -66.5901],
-    zoom: 225,
+    zoom: 3,
     layers: [satelitemap, earthquakes]
   });
 
