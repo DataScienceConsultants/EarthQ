@@ -37,14 +37,14 @@ function markerColor(mag) {
 }
 
 // Perform a GET request to the query URL
-d3.json(link, function(data1) {
+d3.json(link, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
-  createFeatures(data1.features);
+  createFeatures(data.features);
 });
 
-function createFeatures(earthquakeData1) {
+function createFeatures(earthquakeData) {
 
-  var earthquakes = L.geoJSON(earthquakeData1, {
+  var earthquakes = L.geoJSON(earthquakeData, {
   // Define a function we want to run once for each feature in the features array
   // Give each feature a popup describing the place and time of the earthquake
  onEachFeature : function (feature, layer) {
@@ -64,10 +64,10 @@ function createFeatures(earthquakeData1) {
 
 
   // Sending our earthquakes layer to the createMap function
-  createMap(earthquakes1);
+  createMap(earthquakes);
 }
 
-function createMap(earthquakes1) {
+function createMap(earthquakes) {
 
   // Define satelitemap and darkmap layers
   var satelitemap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -92,14 +92,14 @@ function createMap(earthquakes1) {
 
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
-    Earthquakes: earthquakes1
+    Earthquakes: earthquakes
   };
 
   // Create our map, giving it the satelitemap and earthquakes layers to display on load
   var myMap = L.map("map", {
     center: [18.2208, -66.5901],
     zoom: 3,
-    layers: [satelitemap, earthquakes1]
+    layers: [satelitemap, earthquakes]
   });
 
   // Create a layer control
