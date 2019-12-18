@@ -130,4 +130,3 @@ function createMap(earthquakes) {
   legend.addTo(myMap);
 
 }
-© 2019 GitHub, Inc.
